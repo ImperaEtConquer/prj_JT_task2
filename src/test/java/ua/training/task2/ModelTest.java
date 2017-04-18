@@ -53,13 +53,12 @@ public class ModelTest {
 		model.setRange(0, 100);
 		model.setMysteryNumber(RandomIntValues.values()[RandomIntValues.values().length - 1].getValue());
 
-		
 		boolean valueGuessed = false;
 		Controller controller = new Controller(model, view);
 		for (RandomIntValues obj : RandomIntValues.values()) {
 			valueGuessed = controller.guessValueFromEnum(obj.getValue());
 		}
-		
+
 		Assert.assertTrue(valueGuessed);
 
 	}
