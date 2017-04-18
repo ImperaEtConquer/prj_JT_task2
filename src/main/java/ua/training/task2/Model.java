@@ -15,6 +15,10 @@ public class Model {
 	public void setMysteryNumber() {
 		this.mysteryNumber = rand(getMin(), getMax());
 	}
+	
+	public void setMysteryNumber(int value){
+		this.mysteryNumber = value;
+	}
 
 	public void setRange(int minValue, int maxValue) {
 		setMin(minValue);

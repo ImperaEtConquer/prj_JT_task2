@@ -43,6 +43,20 @@ public class Controller {
 		view.printSystemMessage(View.CORRECT_GUESS);
 	}
 
+	public boolean guessValueFromEnum(int value) {
+		if (isInRange(value, model)) {
+			model.addPlayerGuessToSet(value);
+			if (compareValues(value, model.getMysteryNumber())) {
+				view.printSystemMessage(View.CORRECT_GUESS);
+				return true;
+			}
+		} else {
+			view.printErrorMessage(View.OUT_OF_RANGE);
+			return false;
+		}
+		return false;
+	}
+
 	private boolean isInRange(int value, Model model) {
 		return ((value >= model.getMin()) && (value <= model.getMax()));
 	}

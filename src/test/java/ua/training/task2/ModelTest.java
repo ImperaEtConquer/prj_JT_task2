@@ -44,4 +44,23 @@ public class ModelTest {
 
 		Assert.assertTrue(allElementsAreInRange);
 	}
+
+	@Test
+	public void checkGameWithEnum() {
+		Model model = new Model();
+		View view = new View();
+
+		model.setRange(0, 100);
+		model.setMysteryNumber(RandomIntValues.values()[RandomIntValues.values().length - 1].getValue());
+
+		
+		boolean valueGuessed = false;
+		Controller controller = new Controller(model, view);
+		for (RandomIntValues obj : RandomIntValues.values()) {
+			valueGuessed = controller.guessValueFromEnum(obj.getValue());
+		}
+		
+		Assert.assertTrue(valueGuessed);
+
+	}
 }
